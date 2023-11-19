@@ -9,11 +9,11 @@ This Symfony Console task tool allows you to download images from the NASA API b
 
 - [Description](#description)
 - [Requirements](#requirements)
-- [Installation](#installation)
+- [Setup](#setup)
 - [Usage](#usage)
 - [Example](#example)
 - [Commands](#commands)
-- [Tests](#tests)
+- [Testing](#testing)
 - [Documentation](#documentation)
 - [Contact](#contact)
 
@@ -29,7 +29,7 @@ To use this Symfony Console Task for downloading images from the NASA API, the f
 
 Make sure these requirements are met before running the app:download-images command to download and save images from the NASA API.
 
-## Installation
+## Setup
 1. clone the repository:
 
    ```shell
@@ -82,7 +82,7 @@ Info: By default, after a command, if the specified folder already exists, the u
 
 - app:download-images: Downloads images from the NASA EPIC-API and saves them in a folder.
 
-## Tests
+## Testing
 To run the PHPUnit tests:
 
 ```shell
@@ -125,7 +125,7 @@ Dieses Symfony Console Task-Tool ermöglicht das Herunterladen von Bildern von d
 
 ## Beschreibung
 
-Das Tool greift auf die NASA-API zu, um Bilder vom EPIC-Dienst für einen bestimmten Tag herunterzuladen und in einem angegebenen Ordner zu speichern. Es bietet auch die Möglichkeit, das Datum zu übergeben, um Bilder von einem bestimmten Tag zu erhalten. Falls kein Datum angegeben wird, werden die Bilder des letzten verfügbaren Tages heruntergeladen.
+Die Anwendung greift auf die NASA-API zu, um Bilder vom EPIC-Dienst für einen Tag herunterzuladen und in einem angegebenen Ordner zu speichern. Es bietet auch die Möglichkeit, das Datum zu übergeben, um Bilder von einem bestimmten Tag zu erhalten. Falls kein Datum angegeben wird, werden die Bilder des letzten verfügbaren Tages heruntergeladen.
 
 ## Anforderungen:
 Um dieses Symfony Console Task für den Download von Bildern aus der NASA-API nutzen zu können, sind folgende Voraussetzungen erforderlich:

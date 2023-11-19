@@ -16,7 +16,7 @@ class DownloadImagesCommandTest extends KernelTestCase
      *
      * This method is part of PHPUnit's setup process for test classes. It initializes the necessary components
      * required for testing a Symfony command. It boots the kernel, creates a Symfony Console application, adds
-     * the 'DownloadImagesCommand' to the application, and ensures the existence of a directory ('public/images')
+     * the 'DownloadImagesCommand' to the application, and ensures the existence of a directory ('public/images/tests')
      * for storing downloaded images with appropriate permissions.
      *
      * @return void
@@ -27,7 +27,7 @@ class DownloadImagesCommandTest extends KernelTestCase
         $this->application = new Application('DownloadImagesCommand');
         $this->application->add(new DownloadImagesCommand());
 
-        mkdir('public/images', 0755, true);
+        mkdir('public/images/tests', 0755, true);
     }
 
     /**
@@ -37,7 +37,7 @@ class DownloadImagesCommandTest extends KernelTestCase
      */
     protected function tearDown(): void
     {
-        $this->deleteDirectory('public/images');
+        $this->deleteDirectory('public/images/tests');
     }
 
     /**
@@ -76,7 +76,7 @@ class DownloadImagesCommandTest extends KernelTestCase
 
         $commandTester->execute([
             'command' => $command->getName(),
-            'target-folder' => 'public/images', 
+            'target-folder' => 'public/images/tests', 
             'date' => '2023-11-15', 
         ]);
 
@@ -117,7 +117,7 @@ class DownloadImagesCommandTest extends KernelTestCase
         $command = $this->application->find('app:download-images');
         $commandTester = new CommandTester($command);
 
-        $targetFolder = 'public/images';
+        $targetFolder = 'public/images/tests';
         $date = '2023-11-15';
 
         $commandTester->execute([
@@ -147,7 +147,7 @@ class DownloadImagesCommandTest extends KernelTestCase
         $command = $this->application->find('app:download-images');
         $commandTester = new CommandTester($command);
 
-        $targetFolder = 'public/images';
+        $targetFolder = 'public/images/tests';
         $date = '2013-11-20';
 
         $commandTester->execute([
@@ -176,7 +176,7 @@ class DownloadImagesCommandTest extends KernelTestCase
         $command = $this->application->find('app:download-images');
         $commandTester = new CommandTester($command);
 
-        $targetFolder = 'public/images';
+        $targetFolder = 'public/images/tests';
         $date = '2022-11-20';
         
         mkdir($targetFolder . '/' . $date, 0755, true);
@@ -207,7 +207,7 @@ class DownloadImagesCommandTest extends KernelTestCase
         $command = $this->application->find('app:download-images');
         $commandTester = new CommandTester($command);
 
-        $targetFolder = 'public/images';
+        $targetFolder = 'public/images/tests';
         $date = '2021-11-03';
         
         mkdir($targetFolder . '/' . $date, 0755, true);
@@ -244,7 +244,7 @@ class DownloadImagesCommandTest extends KernelTestCase
         $command = $this->application->find('app:download-images');
         $commandTester = new CommandTester($command);
 
-        $targetFolder = 'public/unwritable_folder';
+        $targetFolder = 'public/images/tests/unwritable_folder';
 
         mkdir($targetFolder, 0444, true); 
 
